@@ -15,6 +15,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Previous file
 vim.keymap.set('n', '<leader><leader>', "<C-6>")
 
+-- Cycling search centers to screen
+vim.keymap.set('n', 'n', "nzz")
+vim.keymap.set('n', 'N', "Nzz")
+
 -- Replace word with yanked text
 vim.keymap.set("x", "<leader>r", [["_dP]])
 vim.keymap.set("n", "<leader>r", [[viw"_dP]])

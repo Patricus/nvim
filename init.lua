@@ -273,15 +273,29 @@ if WSL() then
   vim.g.clipboard = {
     name = 'WSLClipboard',
     copy = {
-      ['+'] = 'clip.exe',
-      ['*'] = 'clip.exe',
+      ['+'] = '/mnt/c/Windows/System32/clip.exe',
+      ['*'] = '/mnt/c/Windows/System32/clip.exe',
     },
     paste = {
-      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring():gsub("\\r", ""))',
-      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring():gsub("\\r", ""))',
+      ['+'] =
+      '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("\r", ""))',
+      ['*'] =
+      '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("\r", ""))',
     },
     cache_enabled = 0,
   }
+  -- vim.g.clipboard = {
+  --   name = 'WSLClipboard',
+  --   copy = {
+  --     ['+'] = 'clip.exe',
+  --     ['*'] = 'clip.exe',
+  --   },
+  --   paste = {
+  --     ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring():gsub("\\r", ""))',
+  --     ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring():gsub("\\r", ""))',
+  --   },
+  --   cache_enabled = 0,
+  -- }
 end
 
 -- Enable break indent
