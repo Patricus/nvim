@@ -2,6 +2,7 @@
 --
 -- Use your language server to automatically format your code on save.
 -- Adds additional commands as well to manage the behavior
+vim.keymap.set("n", "<leader>fm", "<cmd>KickstartFormatToggle<cr>")
 
 return {
   'neovim/nvim-lspconfig',
