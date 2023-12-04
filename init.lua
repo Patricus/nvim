@@ -108,6 +108,11 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+
+      -- Add buffer, path, and commandline capabilities
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
     },
   },
   {
@@ -620,6 +625,9 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'cmp-buffer' },
+    { name = 'cmp-path' },
+    { name = 'cmp-cmdline' },
   },
 }
 
