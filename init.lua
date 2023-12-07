@@ -179,6 +179,9 @@ require('lazy').setup({
         section_separators = '',
       },
     },
+    dependencies = {
+      'ryanoasis/vim-devicons',
+    },
   },
 
   {
@@ -191,8 +194,13 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
-  'JoosepAlviste/nvim-ts-context-commentstring',
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    }
+  },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
