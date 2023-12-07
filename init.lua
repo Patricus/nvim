@@ -192,6 +192,7 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',  opts = {} },
+  'JoosepAlviste/nvim-ts-context-commentstring',
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -421,6 +422,13 @@ vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
+    -- ts-autotag config
+    autotag = {
+      enable = true,
+      enable_rename = true,
+      enable_close = true,
+      enable_close_on_slash = true,
+    },
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
