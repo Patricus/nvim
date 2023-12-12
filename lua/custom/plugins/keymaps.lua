@@ -27,6 +27,9 @@ vim.keymap.set("n", "<leader>r", [[viw"_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Yank whole file
+vim.keymap.set("n", "<leader>%", "<cmd>%y<cr>")
+
 -- Paste from clipboard
 vim.keymap.set("n", "<leader>p", [["+p]])
 
