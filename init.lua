@@ -430,18 +430,19 @@ vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
-    -- ts-autotag config
+    -- Enable nvim-ts-autotag
     autotag = {
       enable = true,
       enable_rename = true,
       enable_close = true,
       enable_close_on_slash = true,
     },
+
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -454,10 +455,10 @@ vim.defer_fn(function()
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<c-.>',
-        node_incremental = '<c-.>',
-        scope_incremental = '<c-M-.>',
-        node_decremental = '<c-,>',
+        init_selection = '<c-S-.>',
+        node_incremental = '<c-S-.>',
+        scope_incremental = '<c-M-S-.>',
+        node_decremental = '<c-S-,>',
       },
     },
     textobjects = {
