@@ -156,9 +156,17 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
-    opts = {},
+    config = function ()
+      require('Comment').setup {
+      pre_hook = function()
+        return vim.bo.commentstring
+      end
+      }
+    end,
+    lazy = false,
     dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      'nvim-treesitter/nvim-treesitter',
     }
   },
 
@@ -268,7 +276,7 @@ vim.o.expandtab = true
 vim.o.undofile = true
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv("HOME") .. "/.undo_dir"
+vim.o.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
