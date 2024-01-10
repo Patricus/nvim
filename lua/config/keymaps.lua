@@ -1,5 +1,4 @@
 -- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -20,21 +19,26 @@ vim.keymap.set('n', 'n', "nzz")
 vim.keymap.set('n', 'N', "Nzz")
 
 -- Replace word with yanked text
-vim.keymap.set("x", "<leader>r", [["_dP]])
-vim.keymap.set("n", "<leader>r", [[viw"_dP]])
+vim.keymap.set("x", "<leader>r", '"_dP')
+vim.keymap.set("n", "<leader>r", 'viw"_dP')
 
 -- Yank to clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Yank whole file
 vim.keymap.set("n", "<leader>%", "<cmd>%y<cr>")
 
 -- Paste from clipboard
-vim.keymap.set("n", "<leader>p", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+P')
 
--- Delete without yank
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+-- Do things without affecting the registers
+vim.keymap.set("n", "x", '"_x')
+vim.keymap.set({ "n", "v" }, "<Leader>c", '"_c')
+vim.keymap.set({ "n", "v" }, "<Leader>C", '"_C')
+vim.keymap.set({ "n", "v" }, "<Leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<Leader>D", '"_D')
 
 -- Quicklist navigation
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz")
@@ -44,5 +48,3 @@ vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz")
 vim.keymap.set("n", "[b", "<cmd>bprev<cr>")
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<leader>bd", "<cmd>w<cr><cmd>bd<cr>") -- Write and delete Buffer
-
-return {}
