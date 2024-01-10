@@ -156,11 +156,11 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
-    config = function ()
+    config = function()
       require('Comment').setup {
-      pre_hook = function()
-        return vim.bo.commentstring
-      end
+        pre_hook = function()
+          return vim.bo.commentstring
+        end
       }
     end,
     lazy = false,
@@ -196,6 +196,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      "windwp/nvim-ts-autotag",
     },
     build = ':TSUpdate',
   },
@@ -392,6 +393,9 @@ vim.defer_fn(function()
       enable_rename = true,
       enable_close = true,
       enable_close_on_slash = true,
+      filetypes = {
+        'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript', 'css', 'lua', 'xml', 'php', 'markdown'
+      },
     },
 
     -- Add languages to be installed here that you want installed for treesitter
