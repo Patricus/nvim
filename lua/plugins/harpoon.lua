@@ -1,5 +1,3 @@
--- Harpoon
-
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
@@ -25,10 +23,15 @@ return {
     vim.keymap.set("n", "<leader>2", function() require("harpoon"):list():select(2) end, { desc = "Jump to file 2" })
     vim.keymap.set("n", "<leader>3", function() require("harpoon"):list():select(3) end, { desc = "Jump to file 3" })
     vim.keymap.set("n", "<leader>4", function() require("harpoon"):list():select(4) end, { desc = "Jump to file 4" })
+
+    -- Toggle previous & next buffers stored within Harpoon list
+    vim.keymap.set("n", "<C-S-H>", function() harpoon:list():prev() end)
+    vim.keymap.set("n", "<C-S-L>", function() harpoon:list():next() end)
   end,
   opts = {
     settings = {
       sync_on_ui_close = true,
+      save_on_toggle = true,
     },
   },
 }

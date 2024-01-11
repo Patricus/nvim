@@ -4,7 +4,6 @@ return {
   cmd = { "ConformInfo" },
   keys = {
     {
-      -- Customize or remove this keymap to your liking
       "<leader>FM",
       function()
         if vim.g.autoformat ~= nil then
@@ -13,14 +12,16 @@ return {
           vim.g.autoformat = true
         end
 
-        print("Setting autoformat to: " .. tostring(vim.g.autoformat))
+        print("Setting autoformat to: " .. tostring(not vim.g.autoformat))
       end,
       desc = "Toggle format on save",
     },
+    {
+      "<leader>FF", "<cmd>Format<cr>", mode = {"n", "x"}, { desc = "Format" }
+    }
   },
-  -- Everything in opts will be passed to setup()
   opts = {
-    -- Define your formatters
+    -- Define formatters
     formatters_by_ft = {
       lua = { "lua-ls" },
       python = { { "pyright", "autopep8" } },
@@ -32,7 +33,7 @@ return {
     },
     -- Set up format-on-save
     format_on_save = function()
-      if vim.g.autoformat then
+      if not vim.g.autoformat then
         return { timeout_ms = 500, lsp_fallback = true }
       end
     end,
@@ -44,6 +45,18 @@ return {
     },
   },
   init = function()
+    vim.api.nvim_create_user_command("Format", function(args)
+      local range = nil
+      if args.count ~= -1 then
+        local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+        range = {
+          start = { args.line1, 0 },
+          ["end"] = { args.line2, end_line:len() },
+        }
+      end
+      require("conform").format({ async = true, lsp_fallback = true, range = range })
+    end, { range = true })
+
     -- If you want the formatexpr, here is the place to set it
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
