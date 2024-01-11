@@ -1,7 +1,7 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ':TSUpdate',
-    dependencies = {
+  "nvim-treesitter/nvim-treesitter",
+  build = ':TSUpdate',
+  dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-endwise",
     "mfussenegger/nvim-ts-hint-textobject",
@@ -9,11 +9,11 @@ return {
   },
   config = function()
     require("nvim-treesitter.configs").setup({
-        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+      ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'css', 'html' },
       ignore_install = {}, -- List of parsers to ignore installing
       highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = {}, -- list of language that will be disabled
+        enable = true,     -- false will disable the whole extension
+        disable = {},      -- list of language that will be disabled
         additional_vim_regex_highlighting = false,
       },
       incremental_selection = {
@@ -25,11 +25,10 @@ return {
           node_decremental = "<S-TAB>",
         },
       },
-      endwise = {
-        enable = true,
-      },
+      endwise = { enable = true, },
       indent = { enable = true },
       autopairs = { enable = true },
+      autotag = { enable = true, },
       textobjects = {
         select = {
           enable = true,
