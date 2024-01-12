@@ -14,6 +14,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Previous file
 vim.keymap.set('n', '<leader><leader>', "<C-6>")
 
+-- Begining and end of line
+vim.api.nvim_set_keymap("n", "E", "$", { noremap = false })
+vim.api.nvim_set_keymap("n", "B", "^", { noremap = false })
+
 -- Cycling search centers to screen
 vim.keymap.set('n', 'n', "nzz")
 vim.keymap.set('n', 'N', "Nzz")
