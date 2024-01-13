@@ -53,3 +53,13 @@ vim.keymap.set("n", "[b", "<cmd>bprev<cr>")
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<c-s>", "<cmd>w<cr><cmd>bd<cr>") -- Write and delete Buffer
 vim.keymap.set("n", "<c-x>", "<cmd>bd<cr>")           -- Delete Buffer
+
+-- Resize windows
+vim.keymap.set("n", "<m-k>", "<c-w>+") -- Increase height
+vim.keymap.set("n", "<m-j>", "<c-w>-") -- Decrease height
+vim.keymap.set("n", "<m-l>", "<c-w>>") -- Increase width
+vim.keymap.set("n", "<m-h>", "<c-w><") -- Decrease width
+
+vim.keymap.set("n", "<m-K>", "<c-w>_") -- Max height
+vim.keymap.set("n", "<m-L>", "<c-w>|") -- Max width
+vim.keymap.set("n", "<m-=>", "<c-w>=") -- Equalize window sizes
