@@ -51,8 +51,6 @@ vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz")
 -- Buffer navigation
 vim.keymap.set("n", "[b", "<cmd>bprev<cr>")
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>")
-vim.keymap.set("n", "<c-s>", "<cmd>w<cr><cmd>bd<cr>") -- Write and delete Buffer
-vim.keymap.set("n", "<c-x>", "<cmd>bd<cr>")           -- Delete Buffer
 
 -- Resize windows
 vim.keymap.set("n", "<m-k>", "<c-w>+") -- Increase height
