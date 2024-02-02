@@ -15,6 +15,19 @@ return {
         },
         opts = {},
         config = function()
+            -- Set Diagnostic Signs
+            local function lspSymbol(name, icon)
+                vim.fn.sign_define(
+                    'DiagnosticSign' .. name,
+                    { text = icon, numhl = 'DiagnosticDefault' .. name }
+                )
+            end
+            lspSymbol('Error', '')
+            lspSymbol('Information', '')
+            lspSymbol('Hint', '')
+            lspSymbol('Info', '')
+            lspSymbol('Warning', '')
+
             local on_attach = function(_, bufnr)
                 local nmap = function(keys, func, desc)
                     if desc then

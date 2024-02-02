@@ -2,8 +2,8 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -19,8 +19,8 @@ vim.api.nvim_set_keymap("n", "E", "$", { noremap = false })
 vim.api.nvim_set_keymap("n", "B", "^", { noremap = false })
 
 -- Cycling search centers to screen
-vim.keymap.set('n', 'n', "nzz")
-vim.keymap.set('n', 'N', "Nzz")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 
 -- Replace word with yanked text
 vim.keymap.set("x", "<leader>r", '"_dP')
@@ -32,6 +32,9 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Yank whole file
 vim.keymap.set("n", "<leader>%", "<cmd>%y<cr>")
+
+-- Yanl line without linebreak
+vim.keymap.set("n", "YY", "^yg_")
 
 -- Paste from clipboard
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
@@ -52,6 +55,10 @@ vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz")
 vim.keymap.set("n", "[b", "<cmd>bprev<cr>")
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<c-q>", "<cmd>bd<cr>")
+
+-- Continuous indents
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Resize windows
 vim.keymap.set("n", "<m-k>", "<c-w>+") -- Increase height

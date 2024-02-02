@@ -28,6 +28,12 @@ if wslFile ~= nil then
 	}
 end
 
+-- Disable file edit if changed
+vim.o.writebackup = false
+
+-- Highlight cursor line
+vim.o.cursorline = true
+
 -- Enable break indent
 vim.o.breakindent = true
 
