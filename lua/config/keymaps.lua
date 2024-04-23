@@ -47,6 +47,12 @@ vim.keymap.set({ "n", "v" }, "<Leader>C", '"_C')
 vim.keymap.set({ "n", "v" }, "<Leader>d", '"_d')
 vim.keymap.set({ "n", "v" }, "<Leader>D", '"_D')
 
+-- Search and replace for word under cursor
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Change file permissions
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 -- Quicklist navigation
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz")
 vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz")

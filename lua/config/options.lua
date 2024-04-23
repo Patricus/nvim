@@ -28,8 +28,16 @@ if wslFile ~= nil then
 	}
 end
 
+-- Better split behavior
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.splitkeep = 'cursor'
+
 -- Disable file edit if changed
 vim.o.writebackup = false
+
+-- Column line
+vim.o.colorcolumn = '80'
 
 -- Highlight cursor line
 vim.o.cursorline = true
