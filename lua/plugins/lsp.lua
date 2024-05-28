@@ -11,7 +11,12 @@ return {
             { 'j-hui/fidget.nvim', opts = {} },
 
             -- Additional lua configuration
-            'folke/neodev.nvim',
+            {
+                'folke/neodev.nvim',
+                opts = {
+                    plugins = { "nvim-dap-ui", types = true },
+                },
+            },
         },
         opts = {},
         config = function()
@@ -96,15 +101,22 @@ return {
 
             mason_lspconfig.setup_handlers {
                 function(server_name)
-                    require('lspconfig')[server_name].setup {
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
-                    }
+                    if server_name ~= "rust_analyzer" then
+                        require('lspconfig')[server_name].setup {
+                            capabilities = capabilities,
+                            on_attach = on_attach,
+                            settings = servers[server_name],
+                            filetypes = (servers[server_name] or {}).filetypes,
+                        }
+                    end
                 end,
             }
         end
 
+    },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        lazy = false,   -- This plugin is already lazy
     }
 }
