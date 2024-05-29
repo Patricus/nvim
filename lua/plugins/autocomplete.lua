@@ -75,6 +75,10 @@ return {
                 { name = 'cmp-cmdline' },
                 { name = 'codeium' },
             },
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
             formatting = {
                 format = require('lspkind').cmp_format {
                     mode = 'symbol',
