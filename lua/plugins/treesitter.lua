@@ -27,8 +27,6 @@ return {
       },
       endwise = { enable = true, },
       indent = { enable = true },
-      autopairs = { enable = true },
-      autotag = { enable = true, },
       textobjects = {
         select = {
           enable = true,
