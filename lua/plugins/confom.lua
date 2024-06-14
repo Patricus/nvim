@@ -17,19 +17,24 @@ return {
       desc = "Toggle format on save",
     },
     {
-      "<leader>FF", "<cmd>Format<cr>", mode = {"n", "x"}, { desc = "Format" }
+      "<leader>FF", "<cmd>Format<cr>", mode = { "n", "x" }, { desc = "Format" }
     }
   },
   opts = {
     -- Define formatters
     formatters_by_ft = {
-      lua = { "lua-ls" },
-      python = { { "pyright", "autopep8" } },
+      lua = { "lua-ls", "stylua" },
+      python = { { "pyright", "autopep8", "ruff-lsp", "ruff" } },
       rust = { "rust-analyzer" },
-      javascript = { { "prettierd", "prettier" } },
+      javascript = { { "prettierd", "prettier", "eslint_d" } },
       javascriptreact = { { "prettierd", "prettier", "tailwindcss" } },
-      typescript = { { "tsserver", "ts-standard" } },
+      typescript = { { "tsserver", "ts-standard", "eslint_d" } },
       typescriptreact = { "tsserver", "tailwindcss" },
+      yaml = { "yamllint" },
+      css = { "prettierd" },
+      html = { "prettierd", "html-lsp" },
+      json = { "prettierd" },
+      markdown = { "prettierd", "markdownlint" },
     },
     -- Set up format-on-save
     format_on_save = function()
