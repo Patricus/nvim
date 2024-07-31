@@ -19,7 +19,7 @@ return {
       { desc = 'Search current word' },
     },
     {
-      'v',
+      mode = { 'v' },
       '<leader>sw',
       function()
         require('spectre').open_visual()
