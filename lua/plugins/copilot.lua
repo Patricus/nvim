@@ -82,7 +82,7 @@ return {
     -- Set it to `-1` to parse all lines
     max_lines = 10000,
     -- Set to `true` to disable some non-important messages, like "NeoCodeium: server started..."
-    silent = false,
+    silent = true,
     -- Set to `false` to disable suggestions in buffers with specific filetypes
     filetypes = {
       help = false,
