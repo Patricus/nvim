@@ -8,6 +8,14 @@ return {
       'nvim-telescope/telescope.nvim',
     },
     config = {
+      -- Alias for the Neogit command
+      vim.api.nvim_create_user_command('G', function(opts)
+        if opts.args == '' then
+          vim.cmd 'Neogit'
+        else
+          vim.cmd('Neogit ' .. opts.args)
+        end
+      end, { nargs = '?' }),
       -- Hides the hints at the top of the status buffer
       disable_hint = false,
       -- Disables changing the buffer highlights based on where the cursor is.
@@ -110,7 +118,7 @@ return {
         -- "split_above" Like :top split
         -- "vsplit_left" like :vsplit, but open to the left
         -- "auto" "vsplit" if window would have 80 cols, otherwise "split"
-        staged_diff_split_kind = 'split',
+        staged_diff_split_kind = 'auto',
       },
       commit_select_view = {
         kind = 'tab',
@@ -307,7 +315,7 @@ return {
     },
   },
   -- 'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  -- 'tpope/vim-rhubarb',
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
